@@ -1,0 +1,156 @@
+{
+  "Disciplinas": [
+    {
+      "nome": "Matemática",
+      "descricao": "Fundamentos matemáticos essenciais para a formação académica",
+      "recursos": [
+        {
+          "titulo": "Álgebra Linear Essencial",
+          "tipo": "Livro",
+          "obrigatorio": true,
+          "descricao": "Introdução aos conceitos fundamentais de álgebra linear, incluindo vetores, matrizes, sistemas de equações lineares e transformações lineares. Um recurso indispensável para estudantes de matemática e engenharia.",
+          "autor": "Prof. João Silva",
+          "anoPublicacao": 2023,
+          "paginas": 450,
+          "url": "https://exemplo.com/alg-linear"
+        },
+        {
+          "titulo": "Séries e Sucessões (vídeo)",
+          "tipo": "Vídeo",
+          "obrigatorio": false,
+          "descricao": "Aula introdutória às séries numéricas e sucessões matemáticas. Apresenta exemplos práticos e demonstrações visuais para facilitar a compreensão.",
+          "autor": "Prof. Maria Santos",
+          "duracao": "45 min",
+          "url": "https://exemplo.com/series"
+        },
+        {
+          "titulo": "Cálculo Diferencial e Integral",
+          "tipo": "Livro",
+          "obrigatorio": true,
+          "descricao": "Abordagem completa do cálculo, desde limites e derivadas até integrais múltiplas. Inclui exercícios resolvidos e propostos.",
+          "autor": "Prof. Carlos Ferreira",
+          "anoPublicacao": 2022,
+          "paginas": 680,
+          "url": "https://exemplo.com/calculo"
+        },
+        {
+          "titulo": "Teorema de Pitágoras - História e Aplicações",
+          "tipo": "Artigo",
+          "obrigatorio": false,
+          "descricao": "Artigo científico sobre a evolução histórica do Teorema de Pitágoras e suas múltiplas aplicações em diferentes áreas da ciência.",
+          "autor": "Dra. Ana Costa",
+          "url": "https://exemplo.com/pitagoras"
+        }
+      ]
+    },
+    {
+      "nome": "Programação",
+      "descricao": "Desenvolvimento de software e paradigmas de programação",
+      "recursos": [
+        {
+          "titulo": "Conceitos de MVC em UI5",
+          "tipo": "Artigo",
+          "obrigatorio": true,
+          "descricao": "Visão geral das práticas base do padrão Model-View-Controller no contexto do SAPUI5. Fundamental para compreender a arquitetura de aplicações empresariais.",
+          "autor": "Vitor Ferreira",
+          "url": "https://exemplo.com/mvc-ui5"
+        },
+        {
+          "titulo": "JavaScript Moderno - ES6+",
+          "tipo": "Livro",
+          "obrigatorio": true,
+          "descricao": "Guia completo sobre as funcionalidades modernas do JavaScript, incluindo arrow functions, promises, async/await, classes e módulos ES6.",
+          "autor": "Prof. Pedro Alves",
+          "anoPublicacao": 2024,
+          "paginas": 520,
+          "url": "https://exemplo.com/js-moderno"
+        },
+        {
+          "titulo": "Introdução ao Git e GitHub",
+          "tipo": "Vídeo",
+          "obrigatorio": false,
+          "descricao": "Tutorial prático sobre controlo de versões com Git e colaboração através do GitHub. Essencial para trabalho em equipa.",
+          "autor": "Eng. Rita Mendes",
+          "duracao": "90 min",
+          "url": "https://exemplo.com/git-tutorial"
+        },
+        {
+          "titulo": "Clean Code - Princípios e Práticas",
+          "tipo": "Livro",
+          "obrigatorio": false,
+          "descricao": "Boas práticas de programação para escrever código limpo, legível e manutenível. Inclui exemplos práticos e refactoring.",
+          "autor": "Robert C. Martin",
+          "anoPublicacao": 2021,
+          "paginas": 380,
+          "url": "https://exemplo.com/clean-code"
+        }
+      ]
+    },
+    {
+      "nome": "Base de Dados",
+      "descricao": "Gestão e modelação de sistemas de base de dados",
+      "recursos": [
+        {
+          "titulo": "SQL Fundamentals",
+          "tipo": "Livro",
+          "obrigatorio": true,
+          "descricao": "Fundamentos de SQL com foco em queries, joins, subconsultas e otimização de performance. Inclui exercícios práticos com diferentes SGBD.",
+          "autor": "Prof. Manuel Rodrigues",
+          "anoPublicacao": 2023,
+          "paginas": 420,
+          "url": "https://exemplo.com/sql-fund"
+        },
+        {
+          "titulo": "Normalização de Bases de Dados",
+          "tipo": "Artigo",
+          "obrigatorio": true,
+          "descricao": "Explicação detalhada das formas normais (1NF, 2NF, 3NF, BCNF) e sua importância na modelação de bases de dados relacionais eficientes.",
+          "autor": "Dra. Sofia Martins",
+          "url": "https://exemplo.com/normalizacao"
+        },
+        {
+          "titulo": "MongoDB - NoSQL em Prática",
+          "tipo": "Vídeo",
+          "obrigatorio": false,
+          "descricao": "Introdução prática ao MongoDB e aos conceitos de bases de dados NoSQL. Comparação com bases de dados relacionais e casos de uso.",
+          "autor": "Eng. Bruno Oliveira",
+          "duracao": "120 min",
+          "url": "https://exemplo.com/mongodb"
+        }
+      ]
+    },
+    {
+      "nome": "Redes e Sistemas",
+      "descricao": "Infraestrutura de rede e arquitetura de sistemas",
+      "recursos": [
+        {
+          "titulo": "Protocolos TCP/IP",
+          "tipo": "Livro",
+          "obrigatorio": true,
+          "descricao": "Análise profunda dos protocolos TCP/IP, modelo OSI, endereçamento IP, routing e configuração de redes. Com exemplos práticos de troubleshooting.",
+          "autor": "Eng. Luís Pereira",
+          "anoPublicacao": 2024,
+          "paginas": 550,
+          "url": "https://exemplo.com/tcpip"
+        },
+        {
+          "titulo": "Segurança em Redes",
+          "tipo": "Artigo",
+          "obrigatorio": true,
+          "descricao": "Princípios fundamentais de segurança em redes de computadores, incluindo firewalls, VPNs, criptografia e prevenção de ataques.",
+          "autor": "Dr. António Sousa",
+          "url": "https://exemplo.com/seg-redes"
+        },
+        {
+          "titulo": "Cloud Computing - AWS Essentials",
+          "tipo": "Vídeo",
+          "obrigatorio": false,
+          "descricao": "Introdução aos serviços AWS e aos conceitos de cloud computing. Cobre EC2, S3, RDS e arquiteturas serverless.",
+          "autor": "Eng. Carla Dias",
+          "duracao": "150 min",
+          "url": "https://exemplo.com/aws"
+        }
+      ]
+    }
+  ]
+}

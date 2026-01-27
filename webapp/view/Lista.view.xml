@@ -1,0 +1,127 @@
+<mvc:View
+    controllerName="catalogo.recursos.estudo.controller.Lista"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    displayBlock="true">
+    <Page
+        id="listaPage"
+        title="{i18n>listaTitle}"
+        showNavButton="false"
+        class="sapUiResponsiveContentPadding">
+        
+        <headerContent>
+            <Button
+                id="aboutButton"
+                icon="sap-icon://hint"
+                tooltip="{i18n>aboutButton}"
+                press=".onOpenAboutDialog"/>
+        </headerContent>
+
+        <subHeader>
+            <Toolbar id="searchToolbar">
+                <SearchField
+                    id="searchField"
+                    width="100%"
+                    placeholder="{i18n>searchPlaceholder}"
+                    search=".onSearch"
+                    liveChange=".onSearch"/>
+            </Toolbar>
+        </subHeader>
+
+        <content>
+            <VBox id="disciplinasContainer" class="sapUiSmallMargin">
+                <items>
+                    <Panel
+                        id="panelTemplate"
+                        headerText="{nome}"
+                        expandable="true"
+                        expanded="true"
+                        width="auto"
+                        class="sapUiResponsiveMargin">
+                        <headerToolbar>
+                            <OverflowToolbar>
+                                <Title text="{nome}" level="H2"/>
+                                <ToolbarSpacer/>
+                                <Text text="{descricao}" class="sapUiTinyMarginEnd"/>
+                            </OverflowToolbar>
+                        </headerToolbar>
+                        <content>
+                            <List
+                                id="recursosList"
+                                items="{
+                                    path: 'recursos',
+                                    sorter: {
+                                        path: 'obrigatorio',
+                                        descending: true
+                                    }
+                                }"
+                                noDataText="{i18n>noResults}"
+                                mode="SingleSelectMaster"
+                                itemPress=".onRecursoPress">
+                                <items>
+                                    <ObjectListItem
+                                        type="Active"
+                                        title="{titulo}"
+                                        intro="{
+                                            parts: [
+                                                {path: 'tipo'},
+                                                {path: 'anoPublicacao'},
+                                                {path: 'paginas'},
+                                                {path: 'duracao'}
+                                            ],
+                                            formatter: '.formatter.infoAdicional'
+                                        }"
+                                        icon="{
+                                            path: 'tipo',
+                                            formatter: '.formatter.iconByType'
+                                        }"
+                                        iconDensityAware="false"
+                                        number="{
+                                            path: 'obrigatorio',
+                                            formatter: '.formatter.textoObrigatorio'
+                                        }"
+                                        numberState="{
+                                            path: 'obrigatorio',
+                                            formatter: '.formatter.stateByObrigatorio'
+                                        }"
+                                        highlight="{
+                                            path: 'obrigatorio',
+                                            formatter: '.formatter.highlightByObrigatorio'
+                                        }">
+                                        <attributes>
+                                            <ObjectAttribute 
+                                                text="{i18n>autor}: {autor}"/>
+                                        </attributes>
+                                        <firstStatus>
+                                            <ObjectStatus
+                                                text="{
+                                                    path: 'obrigatorio',
+                                                    formatter: '.formatter.textoObrigatorio'
+                                                }"
+                                                state="{
+                                                    path: 'obrigatorio',
+                                                    formatter: '.formatter.stateByObrigatorio'
+                                                }"
+                                                icon="{
+                                                    path: 'obrigatorio',
+                                                    formatter: '.formatter.iconStatusByObrigatorio'
+                                                }"/>
+                                        </firstStatus>
+                                    </ObjectListItem>
+                                </items>
+                            </List>
+                        </content>
+                    </Panel>
+                </items>
+            </VBox>
+        </content>
+
+        <footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Text text="© 2025 Deloitte &amp; IPS"/>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

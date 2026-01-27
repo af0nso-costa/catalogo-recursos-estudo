@@ -1,0 +1,200 @@
+<mvc:View
+    controllerName="catalogo.recursos.estudo.controller.Detalhe"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:uxap="sap.uxap"
+    xmlns:layout="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    displayBlock="true">
+    <uxap:ObjectPageLayout
+        id="detalhePage"
+        showTitleInHeaderContent="true"
+        alwaysShowContentHeader="false"
+        preserveHeaderStateOnScroll="false"
+        headerContentPinnable="true"
+        isChildPage="true"
+        upperCaseAnchorBar="false">
+        
+        <uxap:headerTitle>
+            <uxap:ObjectPageDynamicHeaderTitle>
+                <uxap:expandedHeading>
+                    <Title
+                        text="{titulo}"
+                        level="H2"/>
+                </uxap:expandedHeading>
+
+                <uxap:snappedHeading>
+                    <FlexBox
+                        fitContainer="true"
+                        alignItems="Center">
+                        <Avatar
+                            src="{
+                                path: 'tipo',
+                                formatter: '.formatter.iconByType'
+                            }"
+                            displaySize="S"
+                            class="sapUiTinyMarginEnd"/>
+                        <Title
+                            text="{titulo}"
+                            level="H2"/>
+                    </FlexBox>
+                </uxap:snappedHeading>
+
+                <uxap:expandedContent>
+                    <Text text="{tipo}"/>
+                </uxap:expandedContent>
+
+                <uxap:snappedContent>
+                    <Text text="{tipo}"/>
+                </uxap:snappedContent>
+
+                <uxap:actions>
+                    <Button
+                        text="{i18n>voltarButton}"
+                        type="Transparent"
+                        icon="sap-icon://nav-back"
+                        press=".onNavBack"/>
+                    <Button
+                        text="{i18n>acessarRecurso}"
+                        type="Emphasized"
+                        icon="sap-icon://action"
+                        press=".onOpenUrl"
+                        visible="{
+                            path: 'url',
+                            formatter: '.formatter.hasUrl'
+                        }"/>
+                </uxap:actions>
+
+                <uxap:navigationActions>
+                    <OverflowToolbarButton
+                        icon="sap-icon://full-screen"
+                        tooltip="Enter Full Screen Mode"
+                        press=".handleFullScreen"/>
+                    <OverflowToolbarButton
+                        icon="sap-icon://exit-full-screen"
+                        tooltip="Exit Full Screen Mode"
+                        press=".handleExitFullScreen"
+                        visible="false"/>
+                    <OverflowToolbarButton
+                        icon="sap-icon://decline"
+                        tooltip="Close"
+                        press=".onNavBack"/>
+                </uxap:navigationActions>
+            </uxap:ObjectPageDynamicHeaderTitle>
+        </uxap:headerTitle>
+
+        <uxap:headerContent>
+            <layout:HorizontalLayout allowWrapping="true">
+                <layout:VerticalLayout class="sapUiMediumMarginEnd">
+                    <ObjectAttribute
+                        title="{i18n>disciplina}"
+                        text="{detalheView>/disciplina}"/>
+                    <ObjectAttribute
+                        title="{i18n>detalhesAutor}"
+                        text="{autor}"/>
+                    <ObjectAttribute
+                        title="{i18n>detalhesTipo}"
+                        text="{tipo}"/>
+                </layout:VerticalLayout>
+
+                <layout:VerticalLayout class="sapUiMediumMarginEnd">
+                    <ObjectAttribute
+                        title="{i18n>detalhesStatus}"
+                        text="{
+                            path: 'obrigatorio',
+                            formatter: '.formatter.textoObrigatorio'
+                        }"/>
+                    <ObjectAttribute
+                        title="{i18n>detalhesAnoPublicacao}"
+                        text="{anoPublicacao}"
+                        visible="{= ${anoPublicacao} !== undefined}"/>
+                    <ObjectAttribute
+                        title="{i18n>detalhesPaginas}"
+                        text="{paginas}"
+                        visible="{= ${paginas} !== undefined}"/>
+                    <ObjectAttribute
+                        title="{i18n>detalhesDuracao}"
+                        text="{duracao}"
+                        visible="{= ${duracao} !== undefined}"/>
+                </layout:VerticalLayout>
+            </layout:HorizontalLayout>
+        </uxap:headerContent>
+
+        <uxap:sections>
+            <uxap:ObjectPageSection
+                title="{i18n>informacaoGeral}"
+                titleUppercase="false">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection>
+                        <uxap:blocks>
+                            <VBox class="sapUiSmallMargin">
+                                <VBox class="sapUiMediumMarginBottom">
+                                    <Label
+                                        text="{i18n>detalhesTitulo}"
+                                        design="Bold"
+                                        class="sapUiTinyMarginBottom"/>
+                                    <Text
+                                        text="{titulo}"
+                                        class="sapUiSmallMarginBottom"/>
+                                </VBox>
+
+                                <VBox class="sapUiMediumMarginBottom">
+                                    <Label
+                                        text="{i18n>detalhesDescricao}"
+                                        design="Bold"
+                                        class="sapUiTinyMarginBottom"/>
+                                    <Text
+                                        text="{descricao}"
+                                        class="sapUiSmallMarginBottom"/>
+                                </VBox>
+
+                                <VBox
+                                    class="sapUiMediumMarginBottom"
+                                    visible="{
+                                        path: 'url',
+                                        formatter: '.formatter.hasUrl'
+                                    }">
+                                    <Label
+                                        text="{i18n>detalhesUrl}"
+                                        design="Bold"
+                                        class="sapUiTinyMarginBottom"/>
+                                    <Link
+                                        text="{url}"
+                                        href="{url}"
+                                        target="_blank"
+                                        class="sapUiSmallMarginBottom"/>
+                                </VBox>
+
+                                <VBox class="sapUiMediumMarginTop">
+                                    <ObjectStatus
+                                        text="{
+                                            path: 'obrigatorio',
+                                            formatter: '.formatter.textoObrigatorio'
+                                        }"
+                                        state="{
+                                            path: 'obrigatorio',
+                                            formatter: '.formatter.stateByObrigatorio'
+                                        }"
+                                        icon="{
+                                            path: 'obrigatorio',
+                                            formatter: '.formatter.iconStatusByObrigatorio'
+                                        }"
+                                        class="sapUiSmallMarginBottom"/>
+                                </VBox>
+                            </VBox>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+        </uxap:sections>
+
+        <uxap:footer>
+            <OverflowToolbar>
+                <ToolbarSpacer/>
+                <Button
+                    text="{i18n>voltarButton}"
+                    press=".onNavBack"/>
+            </OverflowToolbar>
+        </uxap:footer>
+    </uxap:ObjectPageLayout>
+</mvc:View>

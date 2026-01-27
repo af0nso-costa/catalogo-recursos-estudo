@@ -1,0 +1,21 @@
+{
+  "name": "catalogo-recursos-estudo",
+  "version": "1.0.0",
+  "description": "Catálogo de Recursos de Estudo - SAPUI5",
+  "scripts": {
+    "start": "ui5 serve -o index.html",
+    "build": "ui5 build --clean-dest"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^3.0.0"
+  },
+  "ui5": {
+    "dependencies": [
+      "@openui5/sap.m",
+      "@openui5/sap.ui.core",
+      "@openui5/sap.ui.layout",
+      "@openui5/sap.uxap",
+      "@openui5/themelib_sap_fiori_3"
+    ]
+  }
+}

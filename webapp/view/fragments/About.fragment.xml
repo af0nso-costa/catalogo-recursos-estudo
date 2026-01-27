@@ -1,0 +1,37 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog
+        id="aboutDialog"
+        title="{i18n>sobreTitle}"
+        contentWidth="400px"
+        resizable="false"
+        draggable="true">
+        <content>
+            <VBox class="sapUiSmallMargin">
+                <VBox class="sapUiTinyMarginBottom">
+                    <Label text="{i18n>sobreNome}" design="Bold"/>
+                    <Text text="{i18n>sobreNomeValor}"/>
+                </VBox>
+                <VBox class="sapUiTinyMarginBottom">
+                    <Label text="{i18n>sobreUC}" design="Bold"/>
+                    <Text text="{i18n>sobreUCValor}"/>
+                </VBox>
+                <VBox class="sapUiTinyMarginBottom">
+                    <Label text="{i18n>sobreInstituicao}" design="Bold"/>
+                    <Text text="{i18n>sobreInstituicaoValor}"/>
+                </VBox>
+                <VBox class="sapUiTinyMarginBottom">
+                    <Label text="{i18n>sobreAno}" design="Bold"/>
+                    <Text text="{i18n>sobreAnoValor}"/>
+                </VBox>
+            </VBox>
+        </content>
+        <beginButton>
+            <Button
+                text="{i18n>sobreFechar}"
+                press=".onCloseAboutDialog"
+                type="Emphasized"/>
+        </beginButton>
+    </Dialog>
+</core:FragmentDefinition>

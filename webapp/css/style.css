@@ -1,0 +1,115 @@
+/* Global Styles */
+.sapUiBody {
+    font-family: "72", "72full", Arial, Helvetica, sans-serif;
+}
+
+/* Lista View */
+.sapUiResponsiveContentPadding {
+    padding: 0;
+}
+
+.sapMPanel {
+    margin-bottom: 1rem;
+}
+
+.sapMList .sapMLIB {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.sapMObjLItem {
+    padding: 0.5rem 1rem;
+}
+
+/* Object List Item Hover Effect */
+.sapMObjLItem:hover {
+    background-color: #f7f7f7;
+}
+
+/* Panel Header */
+.sapMPanelHdr {
+    background-color: #f7f7f7;
+    border-bottom: 2px solid #0854a0;
+}
+
+/* Search Field */
+.sapMSF {
+    width: 100%;
+}
+
+/* Object Status Colors */
+.sapMObjStatusError {
+    color: #b00;
+}
+
+.sapMObjStatusSuccess {
+    color: #107e3e;
+}
+
+/* Footer */
+.sapMPageFooter .sapMText {
+    font-size: 0.875rem;
+    color: #6a6d70;
+}
+
+/* Detalhe Page */
+.sapUxAPObjectPageHeaderTitle {
+    background-color: #fff;
+}
+
+.sapUxAPObjectPageHeaderContent {
+    background-color: #fafafa;
+}
+
+/* Custom spacing */
+.sapUiTinyMarginBottom {
+    margin-bottom: 0.5rem;
+}
+
+.sapUiSmallMarginBottom {
+    margin-bottom: 1rem;
+}
+
+.sapUiMediumMarginBottom {
+    margin-bottom: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .sapMPanel .sapMText {
+        font-size: 0.875rem;
+    }
+    
+    .sapMObjLItem {
+        padding: 0.75rem 0.5rem;
+    }
+}
+
+/* Loading Animation */
+.sapUiLocalBusyIndicator {
+    z-index: 10;
+}
+
+/* Link Styling */
+.sapMLnk {
+    text-decoration: none;
+}
+
+.sapMLnk:hover {
+    text-decoration: underline;
+}
+
+/* Dialog Styling */
+.sapMDialog .sapMDialogSection {
+    padding: 1rem;
+}
+
+/* ObjectPageLayout custom */
+.sapUxAPObjectPageLayout .sapUxAPObjectPageHeaderContent {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* Highlight styling */
+.sapMLIBHighlight {
+    border-left-width: 4px;
+}
