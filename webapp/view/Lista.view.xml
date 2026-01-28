@@ -31,14 +31,14 @@
 
         <content>
             <VBox id="disciplinasContainer" class="sapUiSmallMargin">
-            
+
             </VBox>
         </content>
 
         <footer>
             <OverflowToolbar>
                 <ToolbarSpacer/>
-                <Text text="© 2025 Deloitte &amp; IPS"/>
+                <Text text="© 2026 Afonso Costa"/>
             </OverflowToolbar>
         </footer>
     </Page>

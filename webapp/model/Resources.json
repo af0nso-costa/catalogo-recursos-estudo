@@ -1,154 +1,172 @@
 {
   "Disciplinas": [
     {
-      "nome": "Matemática",
-      "descricao": "Fundamentos matemáticos essenciais para a formação académica",
+      "nome": "Algoritmos e Tipos Abstratos de Dados",
+      "descricao": "Estudo de estruturas de dados fundamentais e algoritmos essenciais para a computação eficiente",
       "recursos": [
         {
-          "titulo": "Álgebra Linear Essencial",
+          "titulo": "Algoritmos - Design e Análise Completa",
           "tipo": "Livro",
           "obrigatorio": true,
-          "descricao": "Introdução aos conceitos fundamentais de álgebra linear, incluindo vetores, matrizes, sistemas de equações lineares e transformações lineares. Um recurso indispensável para estudantes de matemática e engenharia.",
-          "autor": "Prof. João Silva",
+          "descricao": "Guia completo sobre design e análise de algoritmos, incluindo notação Big O, algoritmos de ordenação, busca e técnicas de resolução de problemas complexos.",
+          "autor": "Prof. Filipe Sousa",
           "anoPublicacao": 2023,
-          "paginas": 450,
-          "url": "https://exemplo.com/alg-linear"
+          "paginas": 520,
+          "url": "https://exemplo.com/algoritmos"
         },
         {
-          "titulo": "Séries e Sucessões (vídeo)",
+          "titulo": "Estruturas de Dados em Profundidade",
+          "tipo": "Livro",
+          "obrigatorio": true,
+          "descricao": "Estudo detalhado de listas, pilhas, filas, árvores, grafos e tabelas hash. Inclui implementações e análise de complexidade para cada estrutura.",
+          "autor": "Prof. Ricardo Mendes",
+          "anoPublicacao": 2024,
+          "paginas": 480,
+          "url": "https://exemplo.com/estruturas-dados"
+        },
+        {
+          "titulo": "Resolução de Problemas Algorítmicos",
           "tipo": "Vídeo",
           "obrigatorio": false,
-          "descricao": "Aula introdutória às séries numéricas e sucessões matemáticas. Apresenta exemplos práticos e demonstrações visuais para facilitar a compreensão.",
-          "autor": "Prof. Maria Santos",
-          "duracao": "45 min",
-          "url": "https://exemplo.com/series"
+          "descricao": "Série de vídeos apresentando técnicas de problem-solving, incluindo divisão e conquista, programação dinâmica e algoritmos gulosos com exemplos práticos.",
+          "autor": "Eng. Helena Costa",
+          "duracao": "180 min",
+          "url": "https://exemplo.com/problem-solving"
         },
         {
-          "titulo": "Cálculo Diferencial e Integral",
-          "tipo": "Livro",
-          "obrigatorio": true,
-          "descricao": "Abordagem completa do cálculo, desde limites e derivadas até integrais múltiplas. Inclui exercícios resolvidos e propostos.",
-          "autor": "Prof. Carlos Ferreira",
-          "anoPublicacao": 2022,
-          "paginas": 680,
-          "url": "https://exemplo.com/calculo"
-        },
-        {
-          "titulo": "Teorema de Pitágoras - História e Aplicações",
+          "titulo": "Grafos - Aplicações e Algoritmos",
           "tipo": "Artigo",
           "obrigatorio": false,
-          "descricao": "Artigo científico sobre a evolução histórica do Teorema de Pitágoras e suas múltiplas aplicações em diferentes áreas da ciência.",
-          "autor": "Dra. Ana Costa",
-          "url": "https://exemplo.com/pitagoras"
+          "descricao": "Análise aprofundada de algoritmos em grafos, incluindo BFS, DFS, Dijkstra e algoritmos de fluxo máximo com aplicações reais.",
+          "autor": "Dr. Nuno Ferreira",
+          "url": "https://exemplo.com/grafos-algoritmos"
         }
       ]
     },
     {
-      "nome": "Programação",
-      "descricao": "Desenvolvimento de software e paradigmas de programação",
+      "nome": "Programação Orientada a Objetos",
+      "descricao": "Paradigma de programação baseado em objetos e princípios fundamentais de OOP",
       "recursos": [
         {
-          "titulo": "Conceitos de MVC em UI5",
-          "tipo": "Artigo",
-          "obrigatorio": true,
-          "descricao": "Visão geral das práticas base do padrão Model-View-Controller no contexto do SAPUI5. Fundamental para compreender a arquitetura de aplicações empresariais.",
-          "autor": "Vitor Ferreira",
-          "url": "https://exemplo.com/mvc-ui5"
-        },
-        {
-          "titulo": "JavaScript Moderno - ES6+",
+          "titulo": "Princípios SOLID em Java",
           "tipo": "Livro",
           "obrigatorio": true,
-          "descricao": "Guia completo sobre as funcionalidades modernas do JavaScript, incluindo arrow functions, promises, async/await, classes e módulos ES6.",
-          "autor": "Prof. Pedro Alves",
-          "anoPublicacao": 2024,
-          "paginas": 520,
-          "url": "https://exemplo.com/js-moderno"
+          "descricao": "Exploração detalhada dos cinco princípios SOLID (Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion) com exemplos em Java.",
+          "autor": "Prof. Tiago Oliveira",
+          "anoPublicacao": 2023,
+          "paginas": 380,
+          "url": "https://exemplo.com/solid-java"
         },
         {
-          "titulo": "Introdução ao Git e GitHub",
+          "titulo": "Design Patterns Essenciais",
+          "tipo": "Livro",
+          "obrigatorio": true,
+          "descricao": "Estudo dos padrões de design mais utilizados: Singleton, Factory, Strategy, Observer, Decorator e MVC. Inclui implementações e casos de uso.",
+          "autor": "Prof. Joana Alves",
+          "anoPublicacao": 2024,
+          "paginas": 450,
+          "url": "https://exemplo.com/design-patterns"
+        },
+        {
+          "titulo": "Encapsulamento, Herança e Polimorfismo",
           "tipo": "Vídeo",
           "obrigatorio": false,
-          "descricao": "Tutorial prático sobre controlo de versões com Git e colaboração através do GitHub. Essencial para trabalho em equipa.",
-          "autor": "Eng. Rita Mendes",
-          "duracao": "90 min",
-          "url": "https://exemplo.com/git-tutorial"
+          "descricao": "Tutorial completo sobre os três pilares da OOP com demonstrações práticas em linguagens como Java, C# e Python.",
+          "autor": "Eng. Marco Silva",
+          "duracao": "120 min",
+          "url": "https://exemplo.com/oop-pilares"
         },
         {
-          "titulo": "Clean Code - Princípios e Práticas",
-          "tipo": "Livro",
+          "titulo": "Refactoring para Orientação a Objetos",
+          "tipo": "Artigo",
           "obrigatorio": false,
-          "descricao": "Boas práticas de programação para escrever código limpo, legível e manutenível. Inclui exemplos práticos e refactoring.",
-          "autor": "Robert C. Martin",
-          "anoPublicacao": 2021,
-          "paginas": 380,
-          "url": "https://exemplo.com/clean-code"
+          "descricao": "Técnicas e estratégias para refatorizar código procedural em código orientado a objetos. Inclui exemplos antes e depois.",
+          "autor": "Dra. Susana Rodrigues",
+          "url": "https://exemplo.com/refactoring-oop"
         }
       ]
     },
     {
       "nome": "Base de Dados",
-      "descricao": "Gestão e modelação de sistemas de base de dados",
+      "descricao": "Gestão, modelação e otimização de sistemas de base de dados",
       "recursos": [
         {
-          "titulo": "SQL Fundamentals",
+          "titulo": "SQL Avançado e Performance",
           "tipo": "Livro",
           "obrigatorio": true,
-          "descricao": "Fundamentos de SQL com foco em queries, joins, subconsultas e otimização de performance. Inclui exercícios práticos com diferentes SGBD.",
+          "descricao": "Estudo profundo de queries complexas, índices, explain plans e otimização de performance em bases de dados relacionais. Inclui boas práticas e anti-padrões.",
           "autor": "Prof. Manuel Rodrigues",
           "anoPublicacao": 2023,
-          "paginas": 420,
-          "url": "https://exemplo.com/sql-fund"
+          "paginas": 520,
+          "url": "https://exemplo.com/sql-avancado"
         },
         {
-          "titulo": "Normalização de Bases de Dados",
+          "titulo": "Modelação de Dados e Normalização",
           "tipo": "Artigo",
           "obrigatorio": true,
-          "descricao": "Explicação detalhada das formas normais (1NF, 2NF, 3NF, BCNF) e sua importância na modelação de bases de dados relacionais eficientes.",
+          "descricao": "Explicação detalhada das formas normais, normalização progressiva e técnicas de modelação ER. Essencial para design de bases de dados bem estruturadas.",
           "autor": "Dra. Sofia Martins",
-          "url": "https://exemplo.com/normalizacao"
+          "url": "https://exemplo.com/normalizacao-dados"
         },
         {
-          "titulo": "MongoDB - NoSQL em Prática",
+          "titulo": "Transações e Integridade de Dados",
           "tipo": "Vídeo",
           "obrigatorio": false,
-          "descricao": "Introdução prática ao MongoDB e aos conceitos de bases de dados NoSQL. Comparação com bases de dados relacionais e casos de uso.",
+          "descricao": "Conceitos de ACID, isolamento de transações, controlo de concorrência e estratégias de recovery. Aplicável a bases de dados modernas.",
           "autor": "Eng. Bruno Oliveira",
-          "duracao": "120 min",
-          "url": "https://exemplo.com/mongodb"
+          "duracao": "90 min",
+          "url": "https://exemplo.com/transacoes-acid"
+        },
+        {
+          "titulo": "NoSQL vs Relacional - Comparação Prática",
+          "tipo": "Artigo",
+          "obrigatorio": false,
+          "descricao": "Análise comparativa entre bases de dados relacionais e NoSQL, casos de uso apropriados e migração entre sistemas.",
+          "autor": "Eng. Pedro Gomes",
+          "url": "https://exemplo.com/nosql-comparacao"
         }
       ]
     },
     {
-      "nome": "Redes e Sistemas",
-      "descricao": "Infraestrutura de rede e arquitetura de sistemas",
+      "nome": "Fundamentos de Cálculo",
+      "descricao": "Conceitos essenciais de cálculo diferencial e integral com aplicações práticas",
       "recursos": [
         {
-          "titulo": "Protocolos TCP/IP",
+          "titulo": "Limites e Continuidade",
           "tipo": "Livro",
           "obrigatorio": true,
-          "descricao": "Análise profunda dos protocolos TCP/IP, modelo OSI, endereçamento IP, routing e configuração de redes. Com exemplos práticos de troubleshooting.",
-          "autor": "Eng. Luís Pereira",
-          "anoPublicacao": 2024,
-          "paginas": 550,
-          "url": "https://exemplo.com/tcpip"
+          "descricao": "Fundações rigorosas do cálculo, explorando conceitos de limites, continuidade e suas propriedades fundamentais com provas e exemplos detalhados.",
+          "autor": "Prof. Fernando Costa",
+          "anoPublicacao": 2022,
+          "paginas": 380,
+          "url": "https://exemplo.com/limites-continuidade"
         },
         {
-          "titulo": "Segurança em Redes",
-          "tipo": "Artigo",
+          "titulo": "Derivadas - Conceitos e Aplicações",
+          "tipo": "Livro",
           "obrigatorio": true,
-          "descricao": "Princípios fundamentais de segurança em redes de computadores, incluindo firewalls, VPNs, criptografia e prevenção de ataques.",
-          "autor": "Dr. António Sousa",
-          "url": "https://exemplo.com/seg-redes"
+          "descricao": "Estudo completo de derivadas, incluindo regras de diferenciação, aplicações em otimização, taxas de variação e análise de funções.",
+          "autor": "Prof. Carlos Ferreira",
+          "anoPublicacao": 2023,
+          "paginas": 440,
+          "url": "https://exemplo.com/derivadas"
         },
         {
-          "titulo": "Cloud Computing - AWS Essentials",
+          "titulo": "Integrais Definidas e Indefinidas",
           "tipo": "Vídeo",
           "obrigatorio": false,
-          "descricao": "Introdução aos serviços AWS e aos conceitos de cloud computing. Cobre EC2, S3, RDS e arquiteturas serverless.",
-          "autor": "Eng. Carla Dias",
+          "descricao": "Aulas práticas sobre cálculo integral, técnicas de integração, integrais definidas e suas aplicações em cálculo de áreas e volumes.",
+          "autor": "Prof. Rui Mendes",
           "duracao": "150 min",
-          "url": "https://exemplo.com/aws"
+          "url": "https://exemplo.com/integrais"
+        },
+        {
+          "titulo": "Aplicações do Cálculo em Engenharia",
+          "tipo": "Artigo",
+          "obrigatorio": false,
+          "descricao": "Demonstração prática de como conceitos de cálculo são aplicados em engenharia, física e problemas reais de otimização.",
+          "autor": "Eng. Dário Santos",
+          "url": "https://exemplo.com/calculo-aplicacoes"
         }
       ]
     }
