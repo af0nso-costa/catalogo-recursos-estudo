@@ -8,7 +8,8 @@
     "description": "{{appDescription}}",
     "applicationVersion": {
       "version": "1.0.0"
-    }
+    },
+    "resources": "resources.json"
   },
   "sap.ui": {
     "technology": "UI5",
@@ -19,6 +20,13 @@
     }
   },
   "sap.ui5": {
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
     "rootView": {
         "viewName": "catalogo.recursos.estudo.view.App",
         "type": "XML",
