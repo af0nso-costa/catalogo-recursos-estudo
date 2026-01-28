@@ -27,10 +27,27 @@ sap.ui.define([
             });
             this.setModel(oViewModel, "listView");
 
-            // Create panels after a small delay to ensure model is loaded
-            setTimeout(function() {
+            // Attach to the route pattern matched event
+            var oRouter = this.getRouter();
+            oRouter.getRoute("lista").attachPatternMatched(this._onRouteMatched, this);
+        },
+
+        /**
+         * Event handler for route matched
+         * @private
+         */
+        _onRouteMatched: function () {
+            // Create panels when route is matched to ensure model is loaded
+            var oModel = this.getModel();
+            
+            if (oModel && oModel.getProperty("/Disciplinas")) {
                 this._createDisciplinePanels();
-            }.bind(this), 100);
+            } else {
+                // If model is not ready, wait for it
+                oModel.attachRequestCompleted(function() {
+                    this._createDisciplinePanels();
+                }.bind(this));
+            }
         },
         
         /* =========================================================== */
@@ -80,6 +97,12 @@ sap.ui.define([
         onRecursoPress: function (oEvent) {
             var oItem = oEvent.getSource();
             var oContext = oItem.getBindingContext();
+            
+            if (!oContext) {
+                console.error("Binding context not found for item");
+                return;
+            }
+            
             var sRecursoPath = oContext.getPath();
             
             // Get discipline name and resource index
@@ -100,6 +123,8 @@ sap.ui.define([
                 }
                 if (iRecursoIndex !== -1) break;
             }
+
+            console.log("Navegando para detalhe:", sDisciplina, iRecursoIndex);
 
             // Navigate to detail page
             this.getRouter().navTo("detalhe", {
@@ -153,7 +178,7 @@ sap.ui.define([
             var oView = this.getView();
             var oModel = this.getModel();
             
-            // Debug: verificar se o modelo existe
+            // Check if model exists
             if (!oModel) {
                 console.error("Modelo não encontrado!");
                 return;
@@ -161,7 +186,7 @@ sap.ui.define([
 
             var aDisciplinas = oModel.getProperty("/Disciplinas");
             
-            // Debug: verificar se os dados existem
+            // Check if data exists
             if (!aDisciplinas || aDisciplinas.length === 0) {
                 console.error("Disciplinas não encontradas no modelo!");
                 console.log("Dados do modelo:", oModel.getData());
@@ -172,11 +197,13 @@ sap.ui.define([
 
             var oContainer = oView.byId("disciplinasContainer");
             
-            // Limpar container
+            // Clear container
             oContainer.destroyItems();
 
-            // Criar um painel para cada disciplina
+            // Create panel for each discipline
             aDisciplinas.forEach(function (oDisciplina, index) {
+                var sListId = "recursosList-" + index;
+                
                 var oPanel = new sap.m.Panel({
                     expandable: true,
                     expanded: true,
@@ -194,7 +221,7 @@ sap.ui.define([
                         ]
                     }),
                     content: [
-                        new sap.m.List({
+                        new sap.m.List(sListId, {
                             items: {
                                 path: "/Disciplinas/" + index + "/recursos",
                                 sorter: {
@@ -249,7 +276,7 @@ sap.ui.define([
                                             formatter: formatter.iconStatusByObrigatorio
                                         }
                                     }),
-                                    press: this.onRecursoPress.bind(this)
+                                    press: [this.onRecursoPress, this]
                                 })
                             },
                             noDataText: "{i18n>noResults}",
