@@ -27,16 +27,12 @@ sap.ui.define([
             });
             this.setModel(oViewModel, "listView");
 
-            // Wait for the model to be loaded
-            var oModel = this.getModel();
-            if (oModel) {
-                oModel.attachRequestCompleted(this._onDataLoaded.bind(this));
-            }
-
-            // Create panels for each discipline
-            this._createDisciplinePanels();
+            // Create panels after a small delay to ensure model is loaded
+            setTimeout(function() {
+                this._createDisciplinePanels();
+            }.bind(this), 100);
         },
-
+        
         /* =========================================================== */
         /* event handlers                                              */
         /* =========================================================== */
@@ -150,14 +146,6 @@ sap.ui.define([
         /* =========================================================== */
 
         /**
-         * Called when data is loaded
-         * @private
-         */
-        _onDataLoaded: function () {
-            this._createDisciplinePanels();
-        },
-
-        /**
          * Creates panels for each discipline dynamically
          * @private
          */
@@ -165,21 +153,29 @@ sap.ui.define([
             var oView = this.getView();
             var oModel = this.getModel();
             
+            // Debug: verificar se o modelo existe
             if (!oModel) {
+                console.error("Modelo não encontrado!");
                 return;
             }
 
             var aDisciplinas = oModel.getProperty("/Disciplinas");
+            
+            // Debug: verificar se os dados existem
             if (!aDisciplinas || aDisciplinas.length === 0) {
+                console.error("Disciplinas não encontradas no modelo!");
+                console.log("Dados do modelo:", oModel.getData());
                 return;
             }
 
+            console.log("A criar painéis para", aDisciplinas.length, "disciplinas");
+
             var oContainer = oView.byId("disciplinasContainer");
             
-            // Clear existing panels
+            // Limpar container
             oContainer.destroyItems();
 
-            // Create a panel for each discipline
+            // Criar um painel para cada disciplina
             aDisciplinas.forEach(function (oDisciplina, index) {
                 var oPanel = new sap.m.Panel({
                     expandable: true,
@@ -193,13 +189,12 @@ sap.ui.define([
                             }),
                             new sap.m.ToolbarSpacer(),
                             new sap.m.Text({
-                                text: oDisciplina.descricao
+                                text: oDisciplina.descricao || ""
                             }).addStyleClass("sapUiTinyMarginEnd")
                         ]
                     }),
                     content: [
                         new sap.m.List({
-                            id: oView.createId("recursosList_" + index),
                             items: {
                                 path: "/Disciplinas/" + index + "/recursos",
                                 sorter: {
@@ -272,7 +267,10 @@ sap.ui.define([
                 }).addStyleClass("sapUiResponsiveMargin");
 
                 oContainer.addItem(oPanel);
+                console.log("Painel criado para:", oDisciplina.nome);
             }, this);
+            
+            console.log("Todos os painéis criados com sucesso!");
         }
     });
 });
