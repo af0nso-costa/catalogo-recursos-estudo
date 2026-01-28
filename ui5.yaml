@@ -10,4 +10,5 @@ framework:
     - name: sap.ui.core
     - name: sap.ui.layout
     - name: sap.uxap
-    - name: themelib_sap_fiori_3
+    - name: themelib_belize
+  
