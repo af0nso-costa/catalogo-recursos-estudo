@@ -9,7 +9,7 @@ sap.ui.define([], function () {
          */
         iconByType: function (sTipo) {
             var mIcons = {
-                "Livro": "sap-icon://book",
+                "Livro": "sap-icon://course-book",
                 "Vídeo": "sap-icon://video",
                 "Artigo": "sap-icon://document-text"
             };

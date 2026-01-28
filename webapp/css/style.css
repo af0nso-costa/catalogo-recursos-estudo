@@ -5,7 +5,7 @@ body.sapUiBody {
 
 /* Page Header */
 .sapMPage-ct {
-    background-color: #fff;
+    background-color: hsl(0, 0%, 100%);
 }
 
 .sapMPageHeader {
