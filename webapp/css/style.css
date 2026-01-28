@@ -10,7 +10,8 @@ body.sapUiBody {
 
 .sapMPageHeader {
     border-bottom: 2px solid #e5e5e5;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.3rem;
+    padding-top: 0.2rem !important;
 }
 
 .sapMPageHeader .sapMTitle {
