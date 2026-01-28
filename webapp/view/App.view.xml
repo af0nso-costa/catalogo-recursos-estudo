@@ -1,7 +1,0 @@
-<mvc:View
-    controllerName="catalogo.recursos.estudo.controller.App"
-    xmlns="sap.m"
-    xmlns:mvc="sap.ui.core.mvc"
-    displayBlock="true">
-    <App id="app" class="sapUiSizeCompact"/>
-</mvc:View>
