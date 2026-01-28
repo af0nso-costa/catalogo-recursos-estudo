@@ -218,14 +218,6 @@ sap.ui.define([
                                         formatter: formatter.iconByType
                                     },
                                     iconDensityAware: false,
-                                    number: {
-                                        path: 'obrigatorio',
-                                        formatter: formatter.textoObrigatorio
-                                    },
-                                    numberState: {
-                                        path: 'obrigatorio',
-                                        formatter: formatter.stateByObrigatorio
-                                    },
                                     highlight: {
                                         path: 'obrigatorio',
                                         formatter: formatter.highlightByObrigatorio
