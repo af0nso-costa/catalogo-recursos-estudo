@@ -3,3 +3,7 @@
 .sapMOHRIcon .sapUiIcon {
 	color: #1a1a1a !important;
 }
+
+.sapMSLI .sapMSLIInfo {
+	margin-top: -0.8rem;
+}
