@@ -47,7 +47,7 @@
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
 					"bundleName": "brightstart.ips.ui5.i18n.i18n",
-					"supportedLocales": [""],
+					"supportedLocales": ["en", "pt", ""],
 					"fallbackLocale": ""
 				}
 			},
