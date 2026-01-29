@@ -40,13 +40,33 @@ sap.ui.define([
 			});
 
 			if (oDisciplina) {
-				var oRecurso = oDisciplina.recursos.find(function (r) {
+				var iRecursoIndex = oDisciplina.recursos.findIndex(function (r) {
 					return r.id === sRecursoId;
 				});
 
-				if (oRecurso) {
-					// Criar modelo local para o recurso
+				if (iRecursoIndex !== -1) {
+					var oRecurso = oDisciplina.recursos[iRecursoIndex];
+					
+					// Log para debug
+					console.log("Recurso carregado:", oRecurso.titulo, "URL:", oRecurso.url);
+					
+					// Usar binding context em vez de modelo separado
+					var sDisciplinaIndex = aDisciplinas.findIndex(function (d) {
+						return d.id === sDisciplinaId;
+					});
+					
+					var sPath = "/Disciplinas/" + sDisciplinaIndex + "/recursos/" + iRecursoIndex;
+					
+					// Criar novo modelo temporário para evitar problemas de binding
 					var oRecursoModel = new JSONModel(oRecurso);
+					
+					// Destruir modelo anterior se existir
+					var oOldModel = this.getView().getModel("recurso");
+					if (oOldModel) {
+						oOldModel.destroy();
+					}
+					
+					// Definir novo modelo
 					this.getView().setModel(oRecursoModel, "recurso");
 				} else {
 					// Recurso não encontrado

@@ -3,7 +3,7 @@
 ## Identificação
 
 - **Instituição:** Deloitte + IPS (Instituto Politécnico de Setúbal)
-- **Unidade Curricular:** SAPUI5
+- **Unidade Curricular:** Introduçãa à Programação Web
 - **Projeto:** Aplicação de Gestão de Recursos de Estudo
 - **Docente:** Vitor Ferreira
 - **Autor:** Afonso Costa

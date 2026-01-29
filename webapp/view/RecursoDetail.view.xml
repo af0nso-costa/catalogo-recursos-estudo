@@ -91,12 +91,7 @@
 										</VBox>
 										
 										<!-- URL -->
-										<VBox
-											class="sapUiSmallMarginBottom"
-											visible="{
-												parts: ['recurso>/url'],
-												formatter: '.formatter.hasValidUrl'
-											}">
+										<VBox class="sapUiSmallMarginBottom">
 											<Label
 												text="{i18n>recursoUrl}"
 												design="Bold" />
@@ -104,19 +99,19 @@
 												text="{recurso>/url}"
 												href="{recurso>/url}"
 												target="_blank"
-												class="sapUiSmallMarginTop" />
+												class="sapUiSmallMarginTop"
+												visible="{
+													parts: ['recurso>/url'],
+													formatter: '.formatter.hasValidUrl'
+												}" />
+											<Text
+												text="{i18n>noUrl}"
+												class="sapUiSmallMarginTop"
+												visible="{
+													parts: ['recurso>/url'],
+													formatter: '.formatter.hasInvalidUrl'
+												}" />
 										</VBox>
-										
-										<!-- Mensagem quando URL não disponível -->
-										<MessageStrip
-											text="{i18n>noUrl}"
-											type="Warning"
-											showIcon="true"
-											visible="{
-												parts: ['recurso>/url'],
-												formatter: '.formatter.hasInvalidUrl'
-											}"
-											class="sapUiSmallMarginTop" />
 									</VBox>
 								</uxap:blocks>
 							</uxap:ObjectPageSubSection>

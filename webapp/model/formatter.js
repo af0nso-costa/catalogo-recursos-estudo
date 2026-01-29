@@ -84,7 +84,10 @@ sap.ui.define([], function () {
 		 * @returns {boolean} - True se URL é válida
 		 */
 		hasValidUrl: function (url) {
-			return url && url.trim() !== "";
+			if (!url || typeof url !== 'string') {
+				return false;
+			}
+			return url.trim() !== "";
 		},
 
 		/**
@@ -93,7 +96,10 @@ sap.ui.define([], function () {
 		 * @returns {boolean} - True se URL é inválida/vazia
 		 */
 		hasInvalidUrl: function (url) {
-			return !url || url.trim() === "";
+			if (!url || typeof url !== 'string') {
+				return true;
+			}
+			return url.trim() === "";
 		},
 
 		/**
