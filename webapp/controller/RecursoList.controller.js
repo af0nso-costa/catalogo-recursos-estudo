@@ -126,13 +126,7 @@ sap.ui.define([
 			var sNewId = "recurso-" + Date.now();
 			oNewRecurso.id = sNewId;
 
-			// Adicionar recurso ao modelo da disciplina (em memória)
-			var oDisciplinaModel = this.getView().getModel("disciplina");
-			var aRecursos = oDisciplinaModel.getProperty("/recursos");
-			aRecursos.push(oNewRecurso);
-			oDisciplinaModel.setProperty("/recursos", aRecursos);
-
-			// Atualizar também o modelo resources global (para manter consistência durante a sessão)
+			// Adicionar recurso ao modelo resources global
 			var oResourceModel = this.getOwnerComponent().getModel("resources");
 			var aDisciplinas = oResourceModel.getProperty("/Disciplinas");
 			var oDisciplina = aDisciplinas.find(function (d) {
@@ -142,6 +136,10 @@ sap.ui.define([
 			if (oDisciplina) {
 				oDisciplina.recursos.push(oNewRecurso);
 				oResourceModel.setProperty("/Disciplinas", aDisciplinas);
+				
+				// Atualizar o modelo local da disciplina
+				var oDisciplinaModel = this.getView().getModel("disciplina");
+				oDisciplinaModel.setProperty("/recursos", oDisciplina.recursos);
 			}
 
 			// Atualizar estatísticas

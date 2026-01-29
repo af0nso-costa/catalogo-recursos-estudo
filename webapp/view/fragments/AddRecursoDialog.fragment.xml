@@ -72,7 +72,9 @@
 					<Label text="{i18n>recursoObrigatorioLabel}" />
 					<Switch
 						id="obrigatorioSwitch"
-						state="{newRecurso>/obrigatorio}" />
+						state="{newRecurso>/obrigatorio}"
+						customTextOn=" "
+						customTextOff=" " />
 				</form:content>
 			</form:SimpleForm>
 		</content>
