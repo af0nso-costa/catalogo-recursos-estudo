@@ -28,11 +28,14 @@ sap.ui.define([
 			});
 			this.setModel(oAppModel, "appState");
 
-			// Calcular estatísticas após carregar dados
-			this._calculateStatistics();
-
-			// Criar router e inicializar
+			// Inicializar o router
 			this.getRouter().initialize();
+
+			// Calcular estatísticas após o modelo estar disponível
+			var oResourceModel = this.getModel("resources");
+			if (oResourceModel) {
+				oResourceModel.attachRequestCompleted(this._calculateStatistics.bind(this));
+			}
 		},
 
 		/**
