@@ -1,0 +1,11 @@
+{
+  "name": "brightstart-ips-ui5",
+  "version": "1.0.0",
+  "description": "Aplicação SAPUI5 - Catálogo de Recursos de Estudo",
+  "scripts": {
+    "start": "ui5 serve -o index.html"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^3.0.0"
+  }
+}

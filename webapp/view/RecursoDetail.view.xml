@@ -1,0 +1,154 @@
+<mvc:View
+	controllerName="brightstart.ips.ui5.controller.RecursoDetail"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:uxap="sap.uxap"
+	displayBlock="true">
+	
+	<Page
+		id="recursoDetailPage"
+		title="{i18n>detailTitle}"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+		
+		<content>
+			<uxap:ObjectPageLayout id="objectPageLayout">
+				<uxap:headerTitle>
+					<uxap:ObjectPageHeader
+						objectTitle="{recurso>/titulo}"
+						objectSubtitle="{
+							parts: ['recurso>/tipo'],
+							formatter: '.formatter.formatTipoTitle'
+						}">
+						<uxap:actions>
+							<Button
+								text="{i18n>openResource}"
+								icon="sap-icon://action"
+								type="Emphasized"
+								press=".onOpenUrl"
+								visible="{
+									parts: ['recurso>/url'],
+									formatter: '.formatter.hasValidUrl'
+								}" />
+						</uxap:actions>
+						
+						<uxap:headerDesign>
+							<ObjectStatus
+								text="{
+									parts: ['recurso>/obrigatorio'],
+									formatter: '.formatter.formatObrigatorio'
+								}"
+								state="{
+									parts: ['recurso>/obrigatorio'],
+									formatter: '.formatter.stateByObrigatorio'
+								}"
+								icon="{
+									parts: ['recurso>/obrigatorio'],
+									formatter: '.formatter.iconByObrigatorio'
+								}" />
+						</uxap:headerDesign>
+					</uxap:ObjectPageHeader>
+				</uxap:headerTitle>
+				
+				<uxap:sections>
+					<uxap:ObjectPageSection
+						titleUppercase="false"
+						title="{i18n>detailInfo}">
+						<uxap:subSections>
+							<uxap:ObjectPageSubSection>
+								<uxap:blocks>
+									<VBox class="sapUiSmallMargin">
+										<!-- Descrição -->
+										<VBox class="sapUiSmallMarginBottom">
+											<Label
+												text="{i18n>recursoDescription}"
+												design="Bold" />
+											<Text
+												text="{
+													parts: ['recurso>/descricao'],
+													formatter: '.formatter.formatDescription'
+												}"
+												class="sapUiSmallMarginTop" />
+										</VBox>
+										
+										<!-- Tipo -->
+										<VBox class="sapUiSmallMarginBottom">
+											<Label
+												text="{i18n>recursoType}"
+												design="Bold" />
+											<HBox alignItems="Center" class="sapUiTinyMarginTop">
+												<core:Icon
+													xmlns:core="sap.ui.core"
+													src="{
+														parts: ['recurso>/tipo'],
+														formatter: '.formatter.iconByType'
+													}"
+													class="sapUiSmallMarginEnd" />
+												<Text
+													text="{
+														parts: ['recurso>/tipo'],
+														formatter: '.formatter.formatTipoTitle'
+													}" />
+											</HBox>
+										</VBox>
+										
+										<!-- Estado -->
+										<VBox class="sapUiSmallMarginBottom">
+											<Label
+												text="{i18n>detailStatus}"
+												design="Bold" />
+											<ObjectStatus
+												text="{
+													parts: ['recurso>/obrigatorio'],
+													formatter: '.formatter.formatObrigatorio'
+												}"
+												state="{
+													parts: ['recurso>/obrigatorio'],
+													formatter: '.formatter.stateByObrigatorio'
+												}"
+												icon="{
+													parts: ['recurso>/obrigatorio'],
+													formatter: '.formatter.iconByObrigatorio'
+												}"
+												class="sapUiSmallMarginTop" />
+										</VBox>
+										
+										<!-- URL -->
+										<VBox
+											class="sapUiSmallMarginBottom"
+											visible="{
+												parts: ['recurso>/url'],
+												formatter: '.formatter.hasValidUrl'
+											}">
+											<Label
+												text="{i18n>recursoUrl}"
+												design="Bold" />
+											<Link
+												text="{recurso>/url}"
+												href="{recurso>/url}"
+												target="_blank"
+												class="sapUiSmallMarginTop" />
+										</VBox>
+										
+										<!-- Mensagem quando URL não disponível -->
+										<MessageStrip
+											text="{i18n>noUrl}"
+											type="Warning"
+											showIcon="true"
+											visible="{
+												parts: ['recurso>/url'],
+												formatter: function(sUrl) {
+													return !sUrl || sUrl.trim() === '';
+												}
+											}"
+											class="sapUiSmallMarginTop" />
+									</VBox>
+								</uxap:blocks>
+							</uxap:ObjectPageSubSection>
+						</uxap:subSections>
+					</uxap:ObjectPageSection>
+				</uxap:sections>
+			</uxap:ObjectPageLayout>
+		</content>
+	</Page>
+</mvc:View>

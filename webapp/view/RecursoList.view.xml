@@ -1,0 +1,76 @@
+<mvc:View
+	controllerName="brightstart.ips.ui5.controller.RecursoList"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true">
+	
+	<Page
+		id="recursoListPage"
+		title="{i18n>recursosTitle}"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+		
+		<content>
+			<!-- Área de pesquisa -->
+			<VBox class="sapUiSmallMargin">
+				<HBox alignItems="Center" justifyContent="SpaceBetween">
+					<SearchField
+						id="searchField"
+						width="70%"
+						placeholder="{i18n>searchPlaceholder}"
+						tooltip="{i18n>searchTooltip}"
+						search=".onSearch"
+						value="{appState>/searchQuery}" />
+					<Button
+						text="{i18n>clearSearch}"
+						press=".onClearSearch"
+						visible="{= ${appState>/searchQuery} !== '' }" />
+				</HBox>
+				<Text
+					text="{i18n>searchInfo}"
+					class="sapUiTinyMarginTop" />
+			</VBox>
+			
+			<!-- Panel com recursos da disciplina -->
+			<VBox class="sapUiSmallMargin">
+				<Panel
+					id="recursosPanel"
+					headerText="{disciplina>/nome}"
+					expandable="false"
+					expanded="true">
+					<content>
+						<List
+							id="recursosList"
+							items="{
+								path: 'disciplina>/recursos'
+							}"
+							mode="None"
+							noDataText="{i18n>noResults}">
+							<StandardListItem
+								title="{disciplina>titulo}"
+								description="{
+									parts: ['disciplina>descricao'],
+									formatter: '.formatter.formatDescription'
+								}"
+								icon="{
+									parts: ['disciplina>tipo'],
+									formatter: '.formatter.iconByType'
+								}"
+								iconInset="false"
+								info="{
+									parts: ['disciplina>obrigatorio'],
+									formatter: '.formatter.formatObrigatorio'
+								}"
+								infoState="{
+									parts: ['disciplina>obrigatorio'],
+									formatter: '.formatter.stateByObrigatorio'
+								}"
+								type="Navigation"
+								press=".onRecursoPress" />
+						</List>
+					</content>
+				</Panel>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

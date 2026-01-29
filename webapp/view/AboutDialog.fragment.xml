@@ -1,0 +1,86 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	
+	<Dialog
+		id="aboutDialog"
+		title="{i18n>aboutTitle}"
+		contentWidth="400px"
+		draggable="true"
+		resizable="true">
+		
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<!-- Ícone e título do projeto -->
+				<HBox alignItems="Center" justifyContent="Center" class="sapUiMediumMarginBottom">
+					<core:Icon
+						src="sap-icon://education"
+						size="3rem"
+						color="#0070F2"
+						class="sapUiSmallMarginEnd" />
+					<VBox>
+						<Title text="{i18n>aboutProjectValue}" level="H3" />
+					</VBox>
+				</HBox>
+				
+				<!-- Informações -->
+				<VBox class="sapUiSmallMarginTop">
+					<!-- Autor -->
+					<HBox alignItems="Center" class="sapUiSmallMarginBottom">
+						<core:Icon
+							src="sap-icon://person-placeholder"
+							size="1.5rem"
+							class="sapUiSmallMarginEnd" />
+						<VBox>
+							<Label text="{i18n>aboutAuthor}" design="Bold" />
+							<Text text="{i18n>authorValue}" />
+						</VBox>
+					</HBox>
+					
+					<!-- Unidade Curricular -->
+					<HBox alignItems="Center" class="sapUiSmallMarginBottom">
+						<core:Icon
+							src="sap-icon://study-leave"
+							size="1.5rem"
+							class="sapUiSmallMarginEnd" />
+						<VBox>
+							<Label text="{i18n>aboutCourse}" design="Bold" />
+							<Text text="{i18n>courseValue}" />
+						</VBox>
+					</HBox>
+					
+					<!-- Instituição -->
+					<HBox alignItems="Center" class="sapUiSmallMarginBottom">
+						<core:Icon
+							src="sap-icon://building"
+							size="1.5rem"
+							class="sapUiSmallMarginEnd" />
+						<VBox>
+							<Label text="{i18n>aboutInstitution}" design="Bold" />
+							<Text text="{i18n>institutionValue}" />
+						</VBox>
+					</HBox>
+					
+					<!-- Ano -->
+					<HBox alignItems="Center" class="sapUiSmallMarginBottom">
+						<core:Icon
+							src="sap-icon://calendar"
+							size="1.5rem"
+							class="sapUiSmallMarginEnd" />
+						<VBox>
+							<Label text="{i18n>aboutYear}" design="Bold" />
+							<Text text="{i18n>yearValue}" />
+						</VBox>
+					</HBox>
+				</VBox>
+			</VBox>
+		</content>
+		
+		<beginButton>
+			<Button
+				text="{i18n>aboutClose}"
+				type="Emphasized"
+				press=".onCloseAbout" />
+		</beginButton>
+	</Dialog>
+</core:FragmentDefinition>

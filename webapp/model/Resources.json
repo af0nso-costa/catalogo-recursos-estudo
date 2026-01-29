@@ -1,0 +1,124 @@
+{
+  "Disciplinas": [
+    {
+      "id": "matematica",
+      "nome": "Matemática",
+      "recursos": [
+        {
+          "id": "alg-linear",
+          "titulo": "Álgebra Linear Essencial",
+          "tipo": "Livro",
+          "obrigatorio": true,
+          "descricao": "Introdução aos conceitos fundamentais de álgebra linear, incluindo matrizes, determinantes e sistemas de equações.",
+          "url": "https://exemplo.com/alg-linear"
+        },
+        {
+          "id": "series-video",
+          "titulo": "Séries e Sucessões (vídeo)",
+          "tipo": "Vídeo",
+          "obrigatorio": false,
+          "descricao": "Aula introdutória às séries numéricas e sucessões matemáticas.",
+          "url": "https://exemplo.com/series"
+        },
+        {
+          "id": "calculo-diferencial",
+          "titulo": "Cálculo Diferencial",
+          "tipo": "Livro",
+          "obrigatorio": true,
+          "descricao": "Manual completo sobre derivadas e aplicações do cálculo diferencial.",
+          "url": "https://exemplo.com/calculo"
+        },
+        {
+          "id": "estatistica-basica",
+          "titulo": "Estatística Básica",
+          "tipo": "Artigo",
+          "obrigatorio": false,
+          "descricao": "Artigo sobre conceitos fundamentais de estatística descritiva.",
+          "url": ""
+        }
+      ]
+    },
+    {
+      "id": "programacao",
+      "nome": "Programação",
+      "recursos": [
+        {
+          "id": "mvc-ui5",
+          "titulo": "Conceitos de MVC em UI5",
+          "tipo": "Artigo",
+          "obrigatorio": true,
+          "descricao": "Visão geral das práticas base do padrão Model-View-Controller em SAPUI5.",
+          "url": "https://exemplo.com/mvc-ui5"
+        },
+        {
+          "id": "javascript-moderno",
+          "titulo": "JavaScript Moderno",
+          "tipo": "Livro",
+          "obrigatorio": true,
+          "descricao": "Guia completo sobre ES6+ e melhores práticas de JavaScript.",
+          "url": "https://exemplo.com/js-moderno"
+        },
+        {
+          "id": "tutorial-sapui5",
+          "titulo": "Tutorial SAPUI5 (vídeo)",
+          "tipo": "Vídeo",
+          "obrigatorio": false,
+          "descricao": "Série de vídeos sobre desenvolvimento de aplicações SAPUI5.",
+          "url": "https://exemplo.com/tutorial-ui5"
+        }
+      ]
+    },
+    {
+      "id": "fisica",
+      "nome": "Física",
+      "recursos": [
+        {
+          "id": "mecanica-classica",
+          "titulo": "Mecânica Clássica",
+          "tipo": "Livro",
+          "obrigatorio": true,
+          "descricao": "Estudo aprofundado das leis de Newton e movimento.",
+          "url": "https://exemplo.com/mecanica"
+        },
+        {
+          "id": "ondas-video",
+          "titulo": "Física de Ondas (vídeo)",
+          "tipo": "Vídeo",
+          "obrigatorio": false,
+          "descricao": "",
+          "url": "https://exemplo.com/ondas"
+        },
+        {
+          "id": "termodinamica",
+          "titulo": "Introdução à Termodinâmica",
+          "tipo": "Artigo",
+          "obrigatorio": true,
+          "descricao": "Artigo sobre as leis da termodinâmica e suas aplicações.",
+          "url": "https://exemplo.com/termo"
+        }
+      ]
+    },
+    {
+      "id": "quimica",
+      "nome": "Química",
+      "recursos": [
+        {
+          "id": "tabela-periodica",
+          "titulo": "A Tabela Periódica",
+          "tipo": "Artigo",
+          "obrigatorio": true,
+          "descricao": "Exploração detalhada dos elementos químicos e suas propriedades.",
+          "url": "https://exemplo.com/tabela"
+        },
+        {
+          "id": "reacoes-quimicas",
+          "titulo": "Reações Químicas (vídeo)",
+          "tipo": "Vídeo",
+          "obrigatorio": false,
+          "descricao": "Demonstrações práticas de reações químicas comuns.",
+          "url": "https://exemplo.com/reacoes"
+        }
+      ]
+    }
+  ]
+}
