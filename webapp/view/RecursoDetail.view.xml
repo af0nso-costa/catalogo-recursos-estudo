@@ -26,22 +26,10 @@
 								icon="sap-icon://action"
 								type="Emphasized"
 								press=".onOpenUrl"
+								iconFirst="true"
 								visible="{
 									parts: ['recurso>/url'],
 									formatter: '.formatter.hasValidUrl'
-								}" />
-							<ObjectStatus
-								text="{
-									parts: ['recurso>/obrigatorio'],
-									formatter: '.formatter.formatObrigatorio'
-								}"
-								state="{
-									parts: ['recurso>/obrigatorio'],
-									formatter: '.formatter.stateByObrigatorio'
-								}"
-								icon="{
-									parts: ['recurso>/obrigatorio'],
-									formatter: '.formatter.iconByObrigatorio'
 								}" />
 						</uxap:actions>
 					</uxap:ObjectPageHeader>
@@ -73,20 +61,12 @@
 											<Label
 												text="{i18n>recursoType}"
 												design="Bold" />
-											<HBox alignItems="Center" class="sapUiTinyMarginTop">
-												<core:Icon
-													xmlns:core="sap.ui.core"
-													src="{
-														parts: ['recurso>/tipo'],
-														formatter: '.formatter.iconByType'
-													}"
-													class="sapUiSmallMarginEnd" />
-												<Text
-													text="{
-														parts: ['recurso>/tipo'],
-														formatter: '.formatter.formatTipoTitle'
-													}" />
-											</HBox>
+											<Text
+												text="{
+													parts: ['recurso>/tipo'],
+													formatter: '.formatter.formatTipoTitle'
+												}"
+												class="sapUiTinyMarginTop" />
 										</VBox>
 										
 										<!-- Estado -->
@@ -134,9 +114,7 @@
 											showIcon="true"
 											visible="{
 												parts: ['recurso>/url'],
-												formatter: function(sUrl) {
-													return !sUrl || sUrl.trim() === '';
-												}
+												formatter: '.formatter.hasInvalidUrl'
 											}"
 											class="sapUiSmallMarginTop" />
 									</VBox>

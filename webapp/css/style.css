@@ -3,8 +3,7 @@
 /* Ícones em preto nas listas */
 .sapMStandardListItem .sapUiIcon,
 .sapMSLI .sapUiIcon,
-.sapMOHRIcon,
-.sapUiIcon {
+.sapMOHRIcon {
 	color: #131313 !important;
 }
 
@@ -13,7 +12,5 @@
 	color: #131313 !important;
 }
 
-/* Ícones em preto nos ObjectStatus */
-.sapMObjectStatus .sapUiIcon {
-	color: #131313 !important;
-}
+/* Ícones do ObjectStatus mantêm a cor do estado (vermelho/verde) */
+/* Removida regra que forçava preto para permitir cores de estado */

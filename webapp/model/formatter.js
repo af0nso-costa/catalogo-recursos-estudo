@@ -88,6 +88,15 @@ sap.ui.define([], function () {
 		},
 
 		/**
+		 * Valida se URL NÃO existe ou está vazia (inverso de hasValidUrl)
+		 * @param {string} url - URL do recurso
+		 * @returns {boolean} - True se URL é inválida/vazia
+		 */
+		hasInvalidUrl: function (url) {
+			return !url || url.trim() === "";
+		},
+
+		/**
 		 * Retorna descrição ou texto de fallback
 		 * @param {string} descricao - Descrição do recurso
 		 * @returns {string} - Descrição ou texto padrão

@@ -11,18 +11,6 @@
 		
 		<content>
 			<VBox class="sapUiSmallMargin">
-				<!-- Ícone e título do projeto -->
-				<HBox alignItems="Center" justifyContent="Center" class="sapUiMediumMarginBottom">
-					<core:Icon
-						src="sap-icon://education"
-						size="3rem"
-						color="#0070F2"
-						class="sapUiSmallMarginEnd" />
-					<VBox>
-						<Title text="{i18n>aboutProjectValue}" level="H3" />
-					</VBox>
-				</HBox>
-				
 				<!-- Informações -->
 				<VBox class="sapUiSmallMarginTop">
 					<!-- Autor -->

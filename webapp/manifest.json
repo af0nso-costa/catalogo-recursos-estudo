@@ -9,6 +9,10 @@
 		},
 		"title": "{{appTitle}}",
 		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.0.0"
+		},
 		"dataSources": {
 			"resourcesData": {
 				"type": "JSON",
@@ -42,7 +46,9 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "brightstart.ips.ui5.i18n.i18n"
+					"bundleName": "brightstart.ips.ui5.i18n.i18n",
+					"supportedLocales": [""],
+					"fallbackLocale": ""
 				}
 			},
 			"resources": {
