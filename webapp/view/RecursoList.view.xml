@@ -29,10 +29,6 @@
 						tooltip="{i18n>searchTooltip}"
 						liveChange=".onSearch"
 						value="{appState>/searchQuery}" />
-					<Button
-						text="{i18n>clearSearch}"
-						press=".onClearSearch"
-						visible="{= ${appState>/searchQuery} !== '' }" />
 				</HBox>
 				<Text
 					text="{i18n>searchInfo}"
