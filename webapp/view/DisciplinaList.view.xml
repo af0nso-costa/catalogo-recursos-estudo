@@ -62,7 +62,7 @@
 						width="70%"
 						placeholder="{i18n>searchPlaceholder}"
 						tooltip="{i18n>searchTooltip}"
-						search=".onSearch"
+						liveChange=".onSearch"
 						value="{appState>/searchQuery}" />
 					<Button
 						text="{i18n>clearSearch}"

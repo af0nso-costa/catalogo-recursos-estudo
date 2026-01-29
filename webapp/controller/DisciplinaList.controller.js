@@ -64,7 +64,7 @@ sap.ui.define([
 			if (!this._oAboutDialog) {
 				Fragment.load({
 					id: this.getView().getId(),
-					name: "brightstart.ips.ui5.view.AboutDialog",
+					name: "brightstart.ips.ui5.view.fragments.AboutDialog",
 					controller: this
 				}).then(function (oDialog) {
 					this._oAboutDialog = oDialog;

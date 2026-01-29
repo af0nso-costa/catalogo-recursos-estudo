@@ -1,0 +1,93 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:form="sap.ui.layout.form">
+	
+	<Dialog
+		id="addRecursoDialog"
+		title="{i18n>addRecursoTitle}"
+		contentWidth="500px"
+		draggable="true">
+		
+		<content>
+			<form:SimpleForm
+				id="addRecursoForm"
+				editable="true"
+				layout="ResponsiveGridLayout"
+				labelSpanXL="4"
+				labelSpanL="4"
+				labelSpanM="4"
+				labelSpanS="12"
+				emptySpanXL="0"
+				emptySpanL="0"
+				emptySpanM="0"
+				emptySpanS="0"
+				columnsXL="1"
+				columnsL="1"
+				columnsM="1"
+				singleContainerFullSize="true">
+				
+				<form:content>
+					<!-- Título -->
+					<Label text="{i18n>recursoTitulo}" required="true" />
+					<Input
+						id="tituloInput"
+						value="{newRecurso>/titulo}"
+						placeholder="{i18n>recursoTituloPlaceholder}"
+						required="true" />
+					
+					<!-- Tipo -->
+					<Label text="{i18n>recursoTipo}" required="true" />
+					<Select
+						id="tipoSelect"
+						selectedKey="{newRecurso>/tipo}"
+						forceSelection="true"
+						required="true">
+						<items>
+							<core:Item key="Livro" text="{i18n>tipoLivro}" />
+							<core:Item key="Vídeo" text="{i18n>tipoVideo}" />
+							<core:Item key="Artigo" text="{i18n>tipoArtigo}" />
+						</items>
+					</Select>
+					
+					<!-- Descrição -->
+					<Label text="{i18n>recursoDescricao}" />
+					<TextArea
+						id="descricaoInput"
+						value="{newRecurso>/descricao}"
+						placeholder="{i18n>recursoDescricaoPlaceholder}"
+						rows="3"
+						growing="true"
+						maxLength="500" />
+					
+					<!-- URL -->
+					<Label text="{i18n>recursoUrl}" />
+					<Input
+						id="urlInput"
+						value="{newRecurso>/url}"
+						placeholder="{i18n>recursoUrlPlaceholder}"
+						type="Url" />
+					
+					<!-- Obrigatório -->
+					<Label text="{i18n>recursoObrigatorioLabel}" />
+					<Switch
+						id="obrigatorioSwitch"
+						state="{newRecurso>/obrigatorio}" />
+				</form:content>
+			</form:SimpleForm>
+		</content>
+		
+		<beginButton>
+			<Button
+				text="{i18n>addRecursoButton}"
+				type="Emphasized"
+				press=".onSaveRecurso" />
+		</beginButton>
+		
+		<endButton>
+			<Button
+				text="{i18n>cancelButton}"
+				press=".onCancelAddRecurso" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

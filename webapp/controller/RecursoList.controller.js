@@ -1,10 +1,12 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/model/json/JSONModel",
+	"sap/ui/core/Fragment",
 	"../model/formatter",
 	"sap/ui/model/Filter",
-	"sap/ui/model/FilterOperator"
-], function (Controller, JSONModel, formatter, Filter, FilterOperator) {
+	"sap/ui/model/FilterOperator",
+	"sap/m/MessageToast"
+], function (Controller, JSONModel, Fragment, formatter, Filter, FilterOperator, MessageToast) {
 	"use strict";
 
 	return Controller.extend("brightstart.ips.ui5.controller.RecursoList", {
@@ -80,6 +82,108 @@ sap.ui.define([
 				}));
 			}
 			oBinding.filter(aFilters);
+		},
+
+		onOpenAddRecurso: function () {
+			if (!this._oAddRecursoDialog) {
+				Fragment.load({
+					id: this.getView().getId(),
+					name: "brightstart.ips.ui5.view.fragments.AddRecursoDialog",
+					controller: this
+				}).then(function (oDialog) {
+					this._oAddRecursoDialog = oDialog;
+					this.getView().addDependent(this._oAddRecursoDialog);
+					this._initNewRecursoModel();
+					this._oAddRecursoDialog.open();
+				}.bind(this));
+			} else {
+				this._initNewRecursoModel();
+				this._oAddRecursoDialog.open();
+			}
+		},
+
+		_initNewRecursoModel: function () {
+			var oNewRecursoModel = new JSONModel({
+				titulo: "",
+				tipo: "Livro",
+				descricao: "",
+				url: "",
+				obrigatorio: true
+			});
+			this.getView().setModel(oNewRecursoModel, "newRecurso");
+		},
+
+		onSaveRecurso: function () {
+			var oNewRecurso = this.getView().getModel("newRecurso").getData();
+			
+			// Validação
+			if (!oNewRecurso.titulo || oNewRecurso.titulo.trim() === "") {
+				MessageToast.show(this.getView().getModel("i18n").getResourceBundle().getText("recursoAddError"));
+				return;
+			}
+
+			// Gerar ID único para o novo recurso
+			var sNewId = "recurso-" + Date.now();
+			oNewRecurso.id = sNewId;
+
+			// Adicionar recurso ao modelo da disciplina (em memória)
+			var oDisciplinaModel = this.getView().getModel("disciplina");
+			var aRecursos = oDisciplinaModel.getProperty("/recursos");
+			aRecursos.push(oNewRecurso);
+			oDisciplinaModel.setProperty("/recursos", aRecursos);
+
+			// Atualizar também o modelo resources global (para manter consistência durante a sessão)
+			var oResourceModel = this.getOwnerComponent().getModel("resources");
+			var aDisciplinas = oResourceModel.getProperty("/Disciplinas");
+			var oDisciplina = aDisciplinas.find(function (d) {
+				return d.id === this._sDisciplinaId;
+			}.bind(this));
+			
+			if (oDisciplina) {
+				oDisciplina.recursos.push(oNewRecurso);
+				oResourceModel.setProperty("/Disciplinas", aDisciplinas);
+			}
+
+			// Atualizar estatísticas
+			this._updateStatistics();
+
+			// Fechar dialog e mostrar mensagem de sucesso
+			this._oAddRecursoDialog.close();
+			MessageToast.show(this.getView().getModel("i18n").getResourceBundle().getText("recursoAdded"));
+		},
+
+		_updateStatistics: function () {
+			var oResourceModel = this.getOwnerComponent().getModel("resources");
+			var aDisciplinas = oResourceModel.getProperty("/Disciplinas");
+			var iTotalResources = 0;
+			var oResourcesByType = {
+				livro: 0,
+				video: 0,
+				artigo: 0
+			};
+
+			aDisciplinas.forEach(function (oDisciplina) {
+				if (oDisciplina.recursos) {
+					iTotalResources += oDisciplina.recursos.length;
+					oDisciplina.recursos.forEach(function (oRecurso) {
+						if (oRecurso.tipo === "Livro") {
+							oResourcesByType.livro++;
+						} else if (oRecurso.tipo === "Vídeo") {
+							oResourcesByType.video++;
+						} else if (oRecurso.tipo === "Artigo") {
+							oResourcesByType.artigo++;
+						}
+					});
+				}
+			});
+
+			var oAppModel = this.getOwnerComponent().getModel("appState");
+			oAppModel.setProperty("/totalResources", iTotalResources);
+			oAppModel.setProperty("/resourcesByType", oResourcesByType);
+		},
+
+		onCancelAddRecurso: function () {
+			this._oAddRecursoDialog.close();
 		}
 	});
 });
