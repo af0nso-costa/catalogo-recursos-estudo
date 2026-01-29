@@ -31,6 +31,7 @@ Aplicação SAPUI5 que permite aos estudantes consultar materiais de estudo orga
 - ✅ **Nível C:** Validação defensiva dos dados (URLs vazias, descrições ausentes)
 
 ### Funcionalidades Extra
+- ✅ Permite adicionar recurso em memória
 - ✅ Contador global de recursos no topo
 - ✅ Indicação visual de obrigatório/opcional
 - ✅ Botão "Limpar Pesquisa"
