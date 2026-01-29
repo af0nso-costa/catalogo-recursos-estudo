@@ -1,16 +1,6 @@
-/* Estilos personalizados para a aplicação BrightStart */
-
-/* Ícones em preto nas listas */
+/* Ícones pretos nas listas e headers */
 .sapMStandardListItem .sapUiIcon,
 .sapMSLI .sapUiIcon,
-.sapMOHRIcon {
-	color: #131313 !important;
-}
-
-/* Ícones em preto nos ObjectHeaders */
 .sapMOHRIcon .sapUiIcon {
 	color: #131313 !important;
 }
-
-/* Ícones do ObjectStatus mantêm a cor do estado (vermelho/verde) */
-/* Removida regra que forçava preto para permitir cores de estado */
