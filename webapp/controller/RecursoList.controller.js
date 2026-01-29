@@ -25,31 +25,21 @@ sap.ui.define([
 		 */
 		_onPatternMatched: function (oEvent) {
 			var sDisciplinaId = oEvent.getParameter("arguments").disciplinaId;
-			
-			// Buscar disciplina pelo ID
 			var oResourceModel = this.getOwnerComponent().getModel("resources");
 			var aDisciplinas = oResourceModel.getProperty("/Disciplinas");
-			
 			var oDisciplina = aDisciplinas.find(function (d) {
 				return d.id === sDisciplinaId;
 			});
 
 			if (oDisciplina) {
-				// Criar modelo local para a disciplina
-				var oDisciplinaModel = new JSONModel(oDisciplina);
-				this.getView().setModel(oDisciplinaModel, "disciplina");
-				
-				// Armazenar ID para navegação posterior
+				this.getView().setModel(new JSONModel(oDisciplina), "disciplina");
 				this._sDisciplinaId = sDisciplinaId;
 
-				// Restaurar pesquisa se existir
-				var oAppModel = this.getOwnerComponent().getModel("appState");
-				var sQuery = oAppModel.getProperty("/searchQuery");
+				var sQuery = this.getOwnerComponent().getModel("appState").getProperty("/searchQuery");
 				if (sQuery) {
 					this._applySearchFilter(sQuery);
 				}
 			} else {
-				// Disciplina não encontrada, voltar
 				this.onNavBack();
 			}
 		},
@@ -82,11 +72,7 @@ sap.ui.define([
 		 */
 		onSearch: function (oEvent) {
 			var sQuery = oEvent.getParameter("query") || oEvent.getParameter("newValue");
-			
-			// Atualizar modelo de estado
-			var oAppModel = this.getOwnerComponent().getModel("appState");
-			oAppModel.setProperty("/searchQuery", sQuery);
-
+			this.getOwnerComponent().getModel("appState").setProperty("/searchQuery", sQuery);
 			this._applySearchFilter(sQuery);
 		},
 
@@ -94,12 +80,8 @@ sap.ui.define([
 		 * Limpa a pesquisa
 		 */
 		onClearSearch: function () {
-			var oSearchField = this.byId("searchField");
-			oSearchField.setValue("");
-
-			var oAppModel = this.getOwnerComponent().getModel("appState");
-			oAppModel.setProperty("/searchQuery", "");
-
+			this.byId("searchField").setValue("");
+			this.getOwnerComponent().getModel("appState").setProperty("/searchQuery", "");
 			this._applySearchFilter("");
 		},
 
@@ -109,28 +91,21 @@ sap.ui.define([
 		 * @private
 		 */
 		_applySearchFilter: function (sQuery) {
-			var oList = this.byId("recursosList");
-			var oBinding = oList.getBinding("items");
-
+			var oBinding = this.byId("recursosList").getBinding("items");
 			if (!oBinding) {
 				return;
 			}
 
 			var aFilters = [];
-			
 			if (sQuery && sQuery.length > 0) {
-				// Pesquisa estendida: título E descrição (Nível B)
-				var oFilterTitle = new Filter("titulo", FilterOperator.Contains, sQuery);
-				var oFilterDesc = new Filter("descricao", FilterOperator.Contains, sQuery);
-				
-				var oCombinedFilter = new Filter({
-					filters: [oFilterTitle, oFilterDesc],
+				aFilters.push(new Filter({
+					filters: [
+						new Filter("titulo", FilterOperator.Contains, sQuery),
+						new Filter("descricao", FilterOperator.Contains, sQuery)
+					],
 					and: false
-				});
-
-				aFilters.push(oCombinedFilter);
+				}));
 			}
-
 			oBinding.filter(aFilters);
 		}
 	});

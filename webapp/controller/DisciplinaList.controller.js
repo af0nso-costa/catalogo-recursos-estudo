@@ -38,11 +38,8 @@ sap.ui.define([
 		 */
 		onSearch: function (oEvent) {
 			var sQuery = oEvent.getParameter("query") || oEvent.getParameter("newValue");
-			
-			// Atualizar modelo de estado
 			var oAppModel = this.getOwnerComponent().getModel("appState");
 			oAppModel.setProperty("/searchQuery", sQuery);
-
 			this._applySearchFilter(sQuery);
 		},
 
@@ -50,12 +47,8 @@ sap.ui.define([
 		 * Limpa a pesquisa
 		 */
 		onClearSearch: function () {
-			var oSearchField = this.byId("searchField");
-			oSearchField.setValue("");
-
-			var oAppModel = this.getOwnerComponent().getModel("appState");
-			oAppModel.setProperty("/searchQuery", "");
-
+			this.byId("searchField").setValue("");
+			this.getOwnerComponent().getModel("appState").setProperty("/searchQuery", "");
 			this._applySearchFilter("");
 		},
 
@@ -65,39 +58,25 @@ sap.ui.define([
 		 * @private
 		 */
 		_applySearchFilter: function (sQuery) {
-			var oList = this.byId("disciplinaList");
-			var oBinding = oList.getBinding("items");
-
+			var oBinding = this.byId("disciplinaList").getBinding("items");
 			if (!oBinding) {
 				return;
 			}
 
 			var aFilters = [];
-			
 			if (sQuery && sQuery.length > 0) {
-				// Filtrar disciplinas que tenham recursos matching
-				var oFilter = new Filter({
+				aFilters.push(new Filter({
 					path: "recursos",
 					test: function (aRecursos) {
-						if (!aRecursos || aRecursos.length === 0) {
-							return false;
-						}
-
-						// Verifica se algum recurso match o termo
-						return aRecursos.some(function (oRecurso) {
+						return aRecursos && aRecursos.some(function (oRecurso) {
 							var sTitulo = (oRecurso.titulo || "").toLowerCase();
 							var sDescricao = (oRecurso.descricao || "").toLowerCase();
 							var sQueryLower = sQuery.toLowerCase();
-
-							return sTitulo.indexOf(sQueryLower) > -1 || 
-							       sDescricao.indexOf(sQueryLower) > -1;
+							return sTitulo.indexOf(sQueryLower) > -1 || sDescricao.indexOf(sQueryLower) > -1;
 						});
 					}
-				});
-
-				aFilters.push(oFilter);
+				}));
 			}
-
 			oBinding.filter(aFilters);
 		},
 

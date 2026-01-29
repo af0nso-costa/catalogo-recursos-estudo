@@ -24,66 +24,47 @@ sap.ui.define([
 		 */
 		_onPatternMatched: function (oEvent) {
 			var oArgs = oEvent.getParameter("arguments");
-			var sDisciplinaId = oArgs.disciplinaId;
-			var sRecursoId = oArgs.recursoId;
-			
-			// Armazenar IDs para navegação
-			this._sDisciplinaId = sDisciplinaId;
-			this._sRecursoId = sRecursoId;
+			this._sDisciplinaId = oArgs.disciplinaId;
+			this._sRecursoId = oArgs.recursoId;
 
-			// Buscar recurso
 			var oResourceModel = this.getOwnerComponent().getModel("resources");
 			var aDisciplinas = oResourceModel.getProperty("/Disciplinas");
-			
 			var oDisciplina = aDisciplinas.find(function (d) {
-				return d.id === sDisciplinaId;
+				return d.id === oArgs.disciplinaId;
 			});
 
 			if (oDisciplina) {
-				var iRecursoIndex = oDisciplina.recursos.findIndex(function (r) {
-					return r.id === sRecursoId;
+				var oRecurso = oDisciplina.recursos.find(function (r) {
+					return r.id === oArgs.recursoId;
 				});
 
-				if (iRecursoIndex !== -1) {
-					var oRecurso = oDisciplina.recursos[iRecursoIndex];
-					
-					// Log para debug
-					console.log("Recurso carregado:", oRecurso.titulo, "URL:", oRecurso.url);
-					
-					// Usar binding context em vez de modelo separado
-					var sDisciplinaIndex = aDisciplinas.findIndex(function (d) {
-						return d.id === sDisciplinaId;
-					});
-					
-					var sPath = "/Disciplinas/" + sDisciplinaIndex + "/recursos/" + iRecursoIndex;
-					
-					// Criar novo modelo temporário para evitar problemas de binding
-					var oRecursoModel = new JSONModel(oRecurso);
-					
-					// Destruir modelo anterior se existir
+				if (oRecurso) {
 					var oOldModel = this.getView().getModel("recurso");
 					if (oOldModel) {
 						oOldModel.destroy();
 					}
-					
-					// Definir novo modelo
-					this.getView().setModel(oRecursoModel, "recurso");
+					this.getView().setModel(new JSONModel(oRecurso), "recurso");
 				} else {
-					// Recurso não encontrado
-					MessageBox.error(this.getView().getModel("i18n").getResourceBundle().getText("errorNotFound"), {
-						onClose: function () {
-							this.onNavBack();
-						}.bind(this)
-					});
+					this._showErrorAndNavigate("errorNotFound", this.onNavBack.bind(this));
 				}
 			} else {
-				// Disciplina não encontrada
-				MessageBox.error(this.getView().getModel("i18n").getResourceBundle().getText("errorNotFound"), {
-					onClose: function () {
-						this._oRouter.navTo("disciplinaList");
-					}.bind(this)
-				});
+				this._showErrorAndNavigate("errorNotFound", function () {
+					this._oRouter.navTo("disciplinaList");
+				}.bind(this));
 			}
+		},
+
+		/**
+		 * Mostra mensagem de erro e navega
+		 * @param {string} sMessageKey - Chave da mensagem i18n
+		 * @param {function} fnCallback - Função de callback após fechar
+		 * @private
+		 */
+		_showErrorAndNavigate: function (sMessageKey, fnCallback) {
+			var sMessage = this.getView().getModel("i18n").getResourceBundle().getText(sMessageKey);
+			MessageBox.error(sMessage, {
+				onClose: fnCallback
+			});
 		},
 
 		/**
@@ -99,10 +80,7 @@ sap.ui.define([
 		 * Abre URL do recurso em nova aba
 		 */
 		onOpenUrl: function () {
-			var oRecursoModel = this.getView().getModel("recurso");
-			var sUrl = oRecursoModel.getProperty("/url");
-
-			// Validação defensiva (Nível C)
+			var sUrl = this.getView().getModel("recurso").getProperty("/url");
 			if (sUrl && sUrl.trim() !== "") {
 				window.open(sUrl, "_blank");
 			} else {
