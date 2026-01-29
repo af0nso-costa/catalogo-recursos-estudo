@@ -2,8 +2,8 @@
 
 ## Identificação
 
-- **Instituição:** Deloitte
-- **Unidade Curricular:** Introduçãa à Programação Web
+- **Instituição:** Deloitte e IPS
+- **Unidade Curricular:** Introdução à Programação Web
 - **Projeto:** Aplicação de Gestão de Recursos de Estudo
 - **Docente:** Vitor Ferreira
 - **Autor:** Afonso Costa
@@ -54,4 +54,3 @@ A aplicação abrirá automaticamente no navegador em `http://localhost:8080/ind
 
 - Dados não persistem (apenas em memória)
 - Não há backend real (utiliza JSONModel local)
-- Funcionalidade de adicionar recursos não implementada (fora do escopo obrigatório)
