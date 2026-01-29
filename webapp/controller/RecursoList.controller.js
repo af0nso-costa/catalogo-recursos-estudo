@@ -10,19 +10,11 @@ sap.ui.define([
 	return Controller.extend("brightstart.ips.ui5.controller.RecursoList", {
 		formatter: formatter,
 
-		/**
-		 * Inicialização do controlador
-		 */
 		onInit: function () {
 			this._oRouter = this.getOwnerComponent().getRouter();
 			this._oRouter.getRoute("recursoList").attachPatternMatched(this._onPatternMatched, this);
 		},
 
-		/**
-		 * Handler quando a rota é ativada
-		 * @param {sap.ui.base.Event} oEvent - Evento de pattern matched
-		 * @private
-		 */
 		_onPatternMatched: function (oEvent) {
 			var sDisciplinaId = oEvent.getParameter("arguments").disciplinaId;
 			var oResourceModel = this.getOwnerComponent().getModel("resources");
@@ -44,17 +36,10 @@ sap.ui.define([
 			}
 		},
 
-		/**
-		 * Navega de volta para lista de disciplinas
-		 */
 		onNavBack: function () {
 			this._oRouter.navTo("disciplinaList");
 		},
 
-		/**
-		 * Navega para detalhes do recurso
-		 * @param {sap.ui.base.Event} oEvent - Evento de pressionar item
-		 */
 		onRecursoPress: function (oEvent) {
 			var oItem = oEvent.getSource();
 			var oContext = oItem.getBindingContext("disciplina");
@@ -66,30 +51,18 @@ sap.ui.define([
 			});
 		},
 
-		/**
-		 * Filtra recursos baseado no termo de pesquisa
-		 * @param {sap.ui.base.Event} oEvent - Evento de pesquisa
-		 */
 		onSearch: function (oEvent) {
 			var sQuery = oEvent.getParameter("query") || oEvent.getParameter("newValue");
 			this.getOwnerComponent().getModel("appState").setProperty("/searchQuery", sQuery);
 			this._applySearchFilter(sQuery);
 		},
 
-		/**
-		 * Limpa a pesquisa
-		 */
 		onClearSearch: function () {
 			this.byId("searchField").setValue("");
 			this.getOwnerComponent().getModel("appState").setProperty("/searchQuery", "");
 			this._applySearchFilter("");
 		},
 
-		/**
-		 * Aplica filtro de pesquisa na lista de recursos
-		 * @param {string} sQuery - Termo de pesquisa
-		 * @private
-		 */
 		_applySearchFilter: function (sQuery) {
 			var oBinding = this.byId("recursosList").getBinding("items");
 			if (!oBinding) {

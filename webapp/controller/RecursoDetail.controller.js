@@ -9,19 +9,11 @@ sap.ui.define([
 	return Controller.extend("brightstart.ips.ui5.controller.RecursoDetail", {
 		formatter: formatter,
 
-		/**
-		 * Inicialização do controlador
-		 */
 		onInit: function () {
 			this._oRouter = this.getOwnerComponent().getRouter();
 			this._oRouter.getRoute("recursoDetail").attachPatternMatched(this._onPatternMatched, this);
 		},
 
-		/**
-		 * Handler quando a rota é ativada
-		 * @param {sap.ui.base.Event} oEvent - Evento de pattern matched
-		 * @private
-		 */
 		_onPatternMatched: function (oEvent) {
 			var oArgs = oEvent.getParameter("arguments");
 			this._sDisciplinaId = oArgs.disciplinaId;
@@ -54,12 +46,6 @@ sap.ui.define([
 			}
 		},
 
-		/**
-		 * Mostra mensagem de erro e navega
-		 * @param {string} sMessageKey - Chave da mensagem i18n
-		 * @param {function} fnCallback - Função de callback após fechar
-		 * @private
-		 */
 		_showErrorAndNavigate: function (sMessageKey, fnCallback) {
 			var sMessage = this.getView().getModel("i18n").getResourceBundle().getText(sMessageKey);
 			MessageBox.error(sMessage, {
@@ -67,18 +53,12 @@ sap.ui.define([
 			});
 		},
 
-		/**
-		 * Navega de volta para lista de recursos
-		 */
 		onNavBack: function () {
 			this._oRouter.navTo("recursoList", {
 				disciplinaId: this._sDisciplinaId
 			});
 		},
 
-		/**
-		 * Abre URL do recurso em nova aba
-		 */
 		onOpenUrl: function () {
 			var sUrl = this.getView().getModel("recurso").getProperty("/url");
 			if (sUrl && sUrl.trim() !== "") {

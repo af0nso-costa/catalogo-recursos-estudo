@@ -10,18 +10,10 @@ sap.ui.define([
 	return Controller.extend("brightstart.ips.ui5.controller.DisciplinaList", {
 		formatter: formatter,
 
-		/**
-		 * Inicialização do controlador
-		 */
 		onInit: function () {
-			// Referência ao router
 			this._oRouter = this.getOwnerComponent().getRouter();
 		},
 
-		/**
-		 * Navega para a lista de recursos da disciplina selecionada
-		 * @param {sap.ui.base.Event} oEvent - Evento de pressionar item
-		 */
 		onDisciplinaPress: function (oEvent) {
 			var oItem = oEvent.getSource();
 			var oContext = oItem.getBindingContext("resources");
@@ -32,10 +24,6 @@ sap.ui.define([
 			});
 		},
 
-		/**
-		 * Filtra recursos baseado no termo de pesquisa
-		 * @param {sap.ui.base.Event} oEvent - Evento de pesquisa
-		 */
 		onSearch: function (oEvent) {
 			var sQuery = oEvent.getParameter("query") || oEvent.getParameter("newValue");
 			var oAppModel = this.getOwnerComponent().getModel("appState");
@@ -43,20 +31,12 @@ sap.ui.define([
 			this._applySearchFilter(sQuery);
 		},
 
-		/**
-		 * Limpa a pesquisa
-		 */
 		onClearSearch: function () {
 			this.byId("searchField").setValue("");
 			this.getOwnerComponent().getModel("appState").setProperty("/searchQuery", "");
 			this._applySearchFilter("");
 		},
 
-		/**
-		 * Aplica filtro de pesquisa em todas as disciplinas
-		 * @param {string} sQuery - Termo de pesquisa
-		 * @private
-		 */
 		_applySearchFilter: function (sQuery) {
 			var oBinding = this.byId("disciplinaList").getBinding("items");
 			if (!oBinding) {
@@ -80,9 +60,6 @@ sap.ui.define([
 			oBinding.filter(aFilters);
 		},
 
-		/**
-		 * Abre o diálogo "Sobre"
-		 */
 		onOpenAbout: function () {
 			if (!this._oAboutDialog) {
 				Fragment.load({
@@ -99,9 +76,6 @@ sap.ui.define([
 			}
 		},
 
-		/**
-		 * Fecha o diálogo "Sobre"
-		 */
 		onCloseAbout: function () {
 			if (this._oAboutDialog) {
 				this._oAboutDialog.close();

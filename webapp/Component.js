@@ -9,14 +9,9 @@ sap.ui.define([
 			manifest: "json"
 		},
 
-		/**
-		 * Inicialização do componente
-		 */
 		init: function () {
-			// Chamada ao init da classe pai
 			UIComponent.prototype.init.apply(this, arguments);
 
-			// Criar modelo para controle de estado da aplicação
 			var oAppModel = new JSONModel({
 				searchQuery: "",
 				totalResources: 0,
@@ -28,20 +23,14 @@ sap.ui.define([
 			});
 			this.setModel(oAppModel, "appState");
 
-			// Inicializar o router
 			this.getRouter().initialize();
 
-			// Calcular estatísticas após o modelo estar disponível
 			var oResourceModel = this.getModel("resources");
 			if (oResourceModel) {
 				oResourceModel.attachRequestCompleted(this._calculateStatistics.bind(this));
 			}
 		},
 
-		/**
-		 * Calcula estatísticas dos recursos
-		 * @private
-		 */
 		_calculateStatistics: function () {
 			var oResourceModel = this.getModel("resources");
 			var oAppModel = this.getModel("appState");
