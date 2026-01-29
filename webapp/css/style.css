@@ -1,0 +1,19 @@
+/* Estilos personalizados para a aplicação BrightStart */
+
+/* Ícones em preto nas listas */
+.sapMStandardListItem .sapUiIcon,
+.sapMSLI .sapUiIcon,
+.sapMOHRIcon,
+.sapUiIcon {
+	color: #131313 !important;
+}
+
+/* Ícones em preto nos ObjectHeaders */
+.sapMOHRIcon .sapUiIcon {
+	color: #131313 !important;
+}
+
+/* Ícones em preto nos ObjectStatus */
+.sapMObjectStatus .sapUiIcon {
+	color: #131313 !important;
+}

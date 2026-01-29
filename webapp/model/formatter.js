@@ -14,7 +14,7 @@ sap.ui.define([], function () {
 			
 			switch (tipo.toLowerCase()) {
 				case "livro":
-					return "sap-icon://book";
+					return "sap-icon://course-book";
 				case "vídeo":
 				case "video":
 					return "sap-icon://video";

@@ -30,9 +30,6 @@
 									parts: ['recurso>/url'],
 									formatter: '.formatter.hasValidUrl'
 								}" />
-						</uxap:actions>
-						
-						<uxap:headerDesign>
 							<ObjectStatus
 								text="{
 									parts: ['recurso>/obrigatorio'],
@@ -46,7 +43,7 @@
 									parts: ['recurso>/obrigatorio'],
 									formatter: '.formatter.iconByObrigatorio'
 								}" />
-						</uxap:headerDesign>
+						</uxap:actions>
 					</uxap:ObjectPageHeader>
 				</uxap:headerTitle>
 				
