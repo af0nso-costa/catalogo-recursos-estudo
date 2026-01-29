@@ -25,7 +25,7 @@
           "titulo": "Cálculo Diferencial",
           "tipo": "Livro",
           "obrigatorio": true,
-          "descricao": "Manual completo sobre derivadas e aplicações do cálculo diferencial.",
+          "descricao": "",
           "url": "https://exemplo.com/calculo"
         },
         {
